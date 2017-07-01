@@ -1,0 +1,22 @@
+<%= render 'shared/page_title', title:  @review.name %> 
+
+<div class="row">
+  <div class="col-md-4 pull-right center">
+    <%= gravatar_for @review.user, size: 180 %>
+    <p>
+      <h5> Reviewed by: <%= @review.user.username %></h5>
+    </p>
+  </div>
+  <div class="col-md-8">
+    <%= link_to "Edit this Review", edit_review_path(@review), class: "btn btn-success pull-right" %>
+    <h3><%= @review.title %></h3>
+    <div class="well">
+      <p>
+        <strong>Review</strong>
+      </p>
+      <%= simple_format(@review.description) %>
+    </div>
+  </div>
+</div>
+
+<h5><%= link_to "Return to Reviews listing", reviews_path, class: "btn btn-warning btn-small" %></h5>
